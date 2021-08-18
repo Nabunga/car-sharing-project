@@ -1,0 +1,51 @@
+//colors
+$main-accent: #0EC261;
+$black: #121212;
+$gray: #999999;
+$gray-light: #EEEEEE;
+
+//fonts
+@font-face {
+	font-family: 'Roboto';
+	src: url('./fonts/roboto-light.eot');
+	src: local('☺'), url('./fonts/roboto-light.woff') format('woff'), url('./fonts/roboto-light.ttf') format('truetype'), url('./fonts/roboto-light.svg') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./fonts/roboto-regular.eot');
+	src: local('☺'), url('./fonts/roboto-regular.woff') format('woff'), url('./fonts/roboto-regular.ttf') format('truetype'), url('./fonts/roboto-regular.svg') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./fonts/roboto-medium.eot');
+	src: local('☺'), url('./fonts/roboto-medium.woff') format('woff'), url('./fonts/roboto-medium.ttf') format('truetype'), url('./fonts/roboto-medium.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./fonts/roboto-bold.eot');
+	src: local('☺'), url('./fonts/roboto-bold.woff') format('woff'), url('./fonts/roboto-bold.ttf') format('truetype'), url('./fonts/roboto-bold.svg') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+// mixins
+@mixin from($pixels) {
+	@media screen and (min-width: $pixels+'px') {
+		@content;
+	}
+}
+
+//media queries
+$mobile: 320;
+$tablet: 768;
+$desktop-min: 1024;
+$desktop: 1440;
