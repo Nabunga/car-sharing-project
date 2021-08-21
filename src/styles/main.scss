@@ -3,6 +3,7 @@ $main-accent: #0EC261;
 $black: #121212;
 $gray: #999999;
 $gray-light: #EEEEEE;
+$side-bar: #151B1F;
 
 //fonts
 @font-face {
@@ -47,5 +48,5 @@ $gray-light: #EEEEEE;
 //media queries
 $mobile: 320;
 $tablet: 768;
-$desktop-min: 1024;
+$laptop: 1024;
 $desktop: 1440;

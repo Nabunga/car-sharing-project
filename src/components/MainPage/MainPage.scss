@@ -1,41 +1,127 @@
 @import "../../styles/main.scss";
 
+.wrapper {
+  display: flex;
+}
+
+.side-bar {
+  position: sticky;
+  margin: 0;
+  padding: 0;
+  width: 86px;
+  height: 811px;
+  background-color: $side-bar;
+  overflow: auto;
+  display: none;
+  @include from ($tablet){
+    display: block;
+  }
+  &__lang-switch {
+    margin: 758px 0 0 24px;
+    color: $main-accent;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+}
+
+.content {
+  flex: 1 1 100%;
+  @include from ($tablet) {
+    margin-left: 32px;
+  }
+}
+
 .container {
   margin: 16px 16px 0 16px;
+  @include from ($tablet) {
+    margin: 0;
+  }
 }
 
-#menu__toggle {
-  opacity: 0;
+#menu {
+  &__toggle {
+    opacity: 0;
+    &:checked ~ .menu__btn > span {
+      transform: rotate(45deg);
+    }
+    &:checked ~ .menu__btn > span::before {
+      top: 0;
+      transform: rotate(0);
+    }
+    &:checked ~ .menu__btn > span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    &:checked ~ .menu__box {
+      visibility: visible;
+      left: 0;
+    }
+  }
 }
 
-#menu__toggle:checked ~ .menu__btn > span {
-  transform: rotate(45deg);
-}
-#menu__toggle:checked ~ .menu__btn > span::before {
-  top: 0;
-  transform: rotate(0);
-}
-#menu__toggle:checked ~ .menu__btn > span::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-#menu__toggle:checked ~ .menu__box {
-  visibility: visible;
-  left: 0;
-}
+.menu {
+  &__btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 32px;
+    left: 16px;
 
-.menu__btn {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 32px;
-  left: 16px;
+    width: 26px;
+    height: 26px;
 
-  width: 26px;
-  height: 26px;
+    cursor: pointer;
+    z-index: 1;
+    @include from ($tablet) {
+      left: 24px;
+    }
+  }
+  &__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+  
+    width: 100%;
+    height: 100%;
+  
+    margin: 0;
+    padding: 80px 0;
+  
+    list-style: none;
+  
+    background-color: $black;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+  
+    transition-duration: 0.25s;
+  }
+  &__list {
+    @include from ($tablet) {
+      margin: 237px 0 0 73px;
+    }
+  }
+  &__item {
+    display: block;
+    padding: 12px 24px;
 
-  cursor: pointer;
-  z-index: 1;
+    color: #fff;
+
+    font-family: "Roboto";
+    font-size: 2.2rem;
+    font-weight: 500;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    transition-duration: 0.25s;
+    @include from ($tablet) {
+      font-size: 2.8rem;
+    }
+    &:hover {
+      color: $main-accent;
+    }
+  }
 }
 
 .menu__btn > span,
@@ -60,43 +146,45 @@
   top: 8px;
 }
 
-.menu__box {
-  display: block;
-  position: fixed;
-  visibility: hidden;
-  top: 0;
-  left: -100%;
+svg.socials__icon path {
+  fill: inherit;
+  stroke:inherit;
+  stroke-width:inherit;
+  }
 
-  width: 300px;
-  height: 100%;
-
-  margin: 0;
-  padding: 80px 0;
-
-  list-style: none;
-
-  background-color: #eceff1;
-  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
-
-  transition-duration: 0.25s;
+.socials {
+  @include from ($tablet) {
+    margin-left: 72px;
+  }
+  &__icon {
+    margin: 32px 0 0 24px;
+    @include from ($tablet) {
+      margin: 38px 0 0 24px;
+    }
+    &:hover {
+      fill: $main-accent;
+    }
+  }
 }
 
-.menu__item {
-  display: block;
-  padding: 12px 24px;
-
-  color: #333;
-
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-
-  text-decoration: none;
-
-  transition-duration: 0.25s;
+.lang-switch {
+  margin: 224px 0 24px 24px;
+  color: $main-accent;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 1.3rem;
+  @include from ($tablet) {
+    display: none;
+  }
 }
-.menu__item:hover {
-  background-color: #cfd8dc;
+
+.header {
+  @include from ($tablet) {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 17px;
+    margin-right: 32px;
+  }
 }
 
 .brand-name {
@@ -123,16 +211,25 @@
 
 .main {
   margin-top: 32px;
+  @include from ($tablet) {
+    margin-top: 160px;
+  }
   &__header {
     font-family: "Roboto";
     font-weight: 700;
     font-size: 3.2rem;
     color: $black;
+    @include from ($tablet) {
+      font-size: 7rem;
+    }
   }
   &__brand-name {
     margin-top: 8px;
     text-align: left;
     font-size: 3.2rem;
+    @include from ($tablet) {
+      font-size: 7rem;
+    }
   }
   &__text {
     font-family: "Roboto";
@@ -141,12 +238,19 @@
     line-height: 21px;
     color: $gray;
     margin-top: 16px;
+    @include from ($tablet) {
+      font-size: 2.6rem;
+    }
   }
 }
 
 .order-button {
   margin-top: 32px;
   margin-bottom: 176px;
+  @include from ($tablet) {
+    margin-top: 64px;
+    margin-bottom: 218px;
+  }
   &__btn {
     font-family: "Roboto";
     font-weight: 500;
@@ -160,17 +264,29 @@
       rgba(14, 194, 97, 1) 37%,
       rgba(3, 159, 103, 1) 74%
     );
+    @include from ($tablet) {
+      width: 250px;
+      border-radius: 8px;
+    }
   }
 }
 
 .footer {
-  background-color: $black;
+  background-color: $side-bar;
   height: 72px;
+  @include from ($tablet) {
+    background-color: white;
+  }
   &__container {
     margin-top: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    @include from ($tablet) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-right: 32px;
+    }
   }
   &__phone {
     font-family: "Roboto";
@@ -178,6 +294,9 @@
     font-size: 1.3rem;
     color: $main-accent;
     margin-top: 16px;
+    @include from ($tablet) {
+      color: $black;
+    }
   }
   &__rights-info {
     font-family: "Roboto";
@@ -185,5 +304,8 @@
     font-size: 1.3rem;
     color: #fff;
     margin-top: 8px;
+    @include from ($tablet) {
+      color: $gray;
+    }
   }
 }
