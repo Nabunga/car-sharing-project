@@ -4,6 +4,7 @@ import { ReactComponent as LocationIcon } from "../../styles/icons/location-icon
 import { ReactComponent as TelegramIcon } from "../../styles/icons/telegram-icon.svg";
 import { ReactComponent as FacebookIcon } from "../../styles/icons/facebook-icon.svg";
 import { ReactComponent as InstagramIcon } from "../../styles/icons/instagram-icon.svg";
+import Carousel from "../Carousel/Carousel";
 
 const MainPage = () => {
   return (
@@ -85,6 +86,7 @@ const MainPage = () => {
             </div>
           </footer>
         </div>
+        <Carousel />
       </div>
     </>
   );
