@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -15,10 +15,7 @@ import SwiperCore, {
   Keyboard,
 } from "swiper/core";
 
-import FirstSlide from "./Sliders/FirstSlide/FirstSlide";
-import SecondSlide from "./Sliders/SecondSlide/SecondSlide";
-import ThirdSlide from "./Sliders/ThirdSlide/ThirdSlide";
-import FourthSlide from "./Sliders/FourthSlide/FourthSlide";
+import Slider from "../Slider/Slider";
 
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
 
@@ -28,22 +25,44 @@ export default function Carousel() {
       <Swiper
         cssMode={true}
         navigation={true}
-        pagination={true}
+        pagination={{ clickable: true }}
         mousewheel={true}
         keyboard={true}
+        loop={true}
         className="mySwiper"
       >
         <SwiperSlide>
-          <FirstSlide />
+          <Slider
+            header="Бесплатная парковка"
+            text="Оставляйте машину на платных городских парковках и разрешенных местах,
+          не нарушая ПДД, а также в аэропортах."
+            className="slider__btn slider__btn-first"
+            classNameSlide="slider slider-first"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <SecondSlide />
+          <Slider
+            header="Страховка"
+            text="Полная страховка автомобиля."
+            className="slider__btn slider__btn-second"
+            classNameSlide="slider slider-second"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <ThirdSlide />
+          <Slider
+            header="Бензин"
+            text="Полный бак на любой заправке города за наш счёт."
+            className="slider__btn slider__btn-third"
+            classNameSlide="slider slider-third"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <FourthSlide />
+          <Slider
+            header="Обслуживание"
+            text="Автомобиль проходит еженедельное ТО."
+            className="slider__btn slider__btn-fourth"
+            classNameSlide="slider slider-fourth"
+          />
         </SwiperSlide>
       </Swiper>
     </>

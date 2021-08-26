@@ -40,13 +40,13 @@ $side-bar: #151B1F;
 
 // mixins
 @mixin from($pixels) {
-	@media screen and (min-width: $pixels+'px') {
+	@media screen and (max-width: $pixels+'px') {
 		@content;
 	}
 }
 
 //media queries
-$mobile: 320;
+$mobile: 425;
 $tablet: 768;
 $laptop: 1024;
 $desktop: 1440;

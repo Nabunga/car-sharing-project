@@ -1,16 +1,12 @@
 @import "../../styles/main.scss";
 
-:root {
-  --swiper-navigation-size: 30px;
-  --swiper-theme-color: #0ec261;
-}
-
 .swiper-container {
-  width: 410px;
+  max-width: 688px;
+  flex: 1 1 100%;
   height: 100vh;
-  @include from($desktop) {
-    width: 688px;
-  }
+  margin: 0;
+  --swiper-navigation-size: 30px;
+  --swiper-theme-color: #fff;
 }
 
 .swiper-slide {
@@ -40,16 +36,32 @@
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets {
-  bottom: 45px;
+  bottom: 32px;
 }
 
 .swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-pointer-events.swiper-container-css-mode.mySwiper {
-  display: none;
-  @include from($laptop) {
-    display: block;
+  @include from($tablet) {
+    display: none;
   }
 }
 
-.swiper-wrapper {
-  background-image: url("../../styles/img/slide-img-1.png");
+.swiper-button-next, .swiper-button-prev {
+  color: #fff;
+  &:hover {
+    color: $main-accent;
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff;
+  opacity: 1;
+  &:hover {
+    color: $main-accent;
+    background-color: $main-accent;
+
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $main-accent;
 }
