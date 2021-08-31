@@ -3,6 +3,7 @@ import { ReactComponent as TelegramIcon } from "../../assets/icons/telegram-icon
 import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook-icon.svg";
 import { ReactComponent as InstagramIcon } from "../../assets/icons/instagram-icon.svg";
 import './HamburgerMenu.scss';
+import LanguageSwitch from "../LanguageSwitch/LanguageSwitch";
 
 const HamburgerMenu = () => {
   return (
@@ -46,7 +47,11 @@ const HamburgerMenu = () => {
             <InstagramIcon className="socials__icon" />
           </a>
         </div>
-          <p className="lang-switch">Eng</p>
+          
+            <LanguageSwitch divClassName='hamburger__language-box' idClassName='hamburger-id'/>
+          
+          
+          {/* <p className="lang-switch">Eng</p> */}
         </div>
         <div className="slider-opacity"></div>
       </div>

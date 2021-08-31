@@ -38,17 +38,19 @@
 .menu {
   &-content{
     display: flex;
+    flex: 1 1 52.2%;
     flex-direction: column;
-    width: 100%;
     justify-content: center;
     background-color: #121212;
     padding-left: 128px;
     @include from ($laptop) {
+      flex: 1 1 59.9%;
       padding-left: 97px;
     }
     @include from ($mobile) {
       padding-top: 80px;
       padding-left: 28px;
+      justify-content: flex-start;
     }
   }
   &__btn {
@@ -86,7 +88,6 @@
     height: 100%;
 
     margin: 0;
-    // padding-left: 128px;
 
     list-style: none;
 
@@ -94,7 +95,6 @@
 
     transition-duration: 0.25s;
     z-index: 2;
-    
   }
   &__item {
     display: block;
@@ -147,12 +147,13 @@
 }
 
 .slider-opacity {
-  min-width: 688px;
+  display: flex;
+  flex: 1 1 47.8%;
   height: 100%;
   background-color: $black;
   opacity: 0.7;
   @include from($laptop) {
-    min-width: 410px;
+    flex: 1 1 40%;
   }
   @include from($tablet) {
     display: none;
@@ -177,23 +178,54 @@ svg.socials__icon path {
   }
 }
 
-.lang-switch {
+.hamburger__language-box {
   display: none;
   @include from($mobile) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-    margin-bottom: 28px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    margin-bottom: 24px;
+  }
+  width: 48px;
+  height: 48px;
+  &:hover {
+    border: 1px solid white;
+    border-radius: 50%;
+  }
+}
+
+#hamburger-id {
+  position: absolute;
+  top: 35%;
+  left: 26%;
+  color: $main-accent;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 1.3rem;
+  &:hover {
+    color: $gray-light;
+  }
+  &:active {
     color: $main-accent;
-    font-family: "Roboto";
-    font-weight: 700;
-    font-size: 1.3rem;
-    &:hover {
-      color: $gray-light;
-    }
-    &:active {
-      color: $main-accent;
-    }
+  }
+}
+#switch-input {
+  display: none;
+}
+#switch-input:checked + #hamburger-id:after {
+  content: "Рус";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: $main-accent;
+  background-color: $side-bar;
+  &:hover {
+    color: $gray-light;
+  }
+  &:active {
+    color: $main-accent;
   }
 }

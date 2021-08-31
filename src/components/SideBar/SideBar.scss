@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import "../../styles/main.scss";
 
 .side-bar {
   display: flex;
@@ -9,24 +9,57 @@
   width: 64px;
   height: 100vh;
   flex-shrink: 0;
-  background-color: #151B1F;
+  background-color: $side-bar;
   @include from($tablet) {
     width: 86px;
   }
   @include from($mobile) {
     display: none;
   }
-  &__lang-switch {
+}
+
+.sidebar__language-box {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  &:hover {
+    border: 1px solid white;
+    border-radius: 50%;
+  }
+}
+
+#sidebar-id {
+  position: absolute;
+  top: 35%;
+  left: 26%;
+  color: $main-accent;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 1.3rem;
+  &:hover {
+    color: $gray-light;
+  }
+  &:active {
     color: $main-accent;
-    font-family: "Roboto";
-    font-weight: 700;
-    font-size: 1.3rem;
-    margin-bottom: 32px;
-    &:hover {
-      color: $gray-light;
-    }
-    &:active {
-      color: $main-accent;
-    }
+  }
+}
+#switch-input {
+  display: none;
+}
+#switch-input:checked + #sidebar-id:after {
+  content: "Рус";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: $main-accent;
+  background-color: $side-bar;
+  &:hover {
+    color: $gray-light;
+  }
+  &:active {
+    color: $main-accent;
   }
 }

@@ -1,12 +1,13 @@
 import React from "react";
-import './SideBar.scss';
+import "./SideBar.scss";
+import LanguageSwitch from "../LanguageSwitch/LanguageSwitch";
 
 const SideBar = () => {
   return (
-    <div className="side-bar">
-      <p className="side-bar__lang-switch">Eng</p>
+    <div className='side-bar'> 
+      <LanguageSwitch divClassName='sidebar__language-box' idClassName='sidebar-id'/>
     </div>
-  );
+  )
 };
 
 export default SideBar;
