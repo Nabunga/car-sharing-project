@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import "../../styles/main.scss";
 
 .hamburger-menu {
   width: 0;
@@ -36,18 +36,18 @@
 }
 
 .menu {
-  &-content{
+  &-content {
     display: flex;
     flex: 1 1 52.2%;
     flex-direction: column;
     justify-content: center;
     background-color: #121212;
     padding-left: 128px;
-    @include from ($laptop) {
+    @include from($laptop) {
       flex: 1 1 59.9%;
       padding-left: 97px;
     }
-    @include from ($mobile) {
+    @include from($mobile) {
       padding-top: 80px;
       padding-left: 28px;
       justify-content: flex-start;
@@ -133,7 +133,7 @@
   background-color: #fff;
 
   transition-duration: 0.25s;
-  @include from ($mobile) {
+  @include from($mobile) {
     background-color: $black;
   }
 }

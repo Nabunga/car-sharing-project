@@ -4,10 +4,13 @@ import LanguageSwitch from "../LanguageSwitch/LanguageSwitch";
 
 const SideBar = () => {
   return (
-    <div className='side-bar'> 
-      <LanguageSwitch divClassName='sidebar__language-box' idClassName='sidebar-id'/>
+    <div className="side-bar">
+      <LanguageSwitch
+        divClassName="sidebar__language-box"
+        idClassName="sidebar-id"
+      />
     </div>
-  )
+  );
 };
 
 export default SideBar;

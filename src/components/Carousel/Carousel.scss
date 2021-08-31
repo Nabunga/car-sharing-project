@@ -39,15 +39,16 @@
   }
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   top: 0;
   width: 64px;
   height: 102%;
-  @include from ($laptop) {
+  @include from($laptop) {
     width: 32px;
   }
   &:hover {
-    background-color: #0EC26133;
+    background-color: #0ec26133;
   }
 }
 

@@ -10,16 +10,14 @@
 .content {
   display: flex;
   flex-direction: column;
-  // min-width: 688px;
   min-height: 100%;
   padding: 32px 64px 0 64px;
   flex: 1 1 47.8%;
-  @include from ($laptop) {
+  @include from($laptop) {
     flex: 1 1 53.6%;
-    // min-width: 549px;
     padding: 32px 32px 0 32px;
   }
-  @include from ($mobile) {
+  @include from($mobile) {
     min-width: 320px;
     padding: 0;
   }
