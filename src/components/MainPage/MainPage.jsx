@@ -5,8 +5,8 @@ import SideBar from "../SideBar/SideBar";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import OrderButton from "../OrderButton/OrderButton";
 import Footer from "../Footer/Footer";
+import ButtonMainPage from "../ButtonMainPage/ButtonMainPage";
 
 const MainPage = () => {
   return (
@@ -20,7 +20,7 @@ const MainPage = () => {
           </header>
           <main className="main">
             <Main />
-            <OrderButton />
+            <ButtonMainPage className='order-button' title='Забронировать'/>
           </main>
           <footer className="footer">
             <Footer />

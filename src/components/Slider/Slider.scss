@@ -37,7 +37,6 @@
       background-size: cover;
     }
   }
-  
   &__content {
     display: flex;
     flex-direction: column;
@@ -68,57 +67,6 @@
     margin-top: 8px;
     @include from($laptop) {
       font-size: 2.2rem;
-    }
-  }
-  &__btn {
-    width: 164px;
-    height: 48px;
-    font-family: "Roboto";
-    font-weight: 500;
-    color: $gray-light;
-    font-size: 1.8rem;
-    margin-top: 32px;
-    border-radius: 4px;
-    &:hover {
-      filter: brightness(0.9);
-    }
-    &:focus {
-      filter: brightness(0.8);
-    }
-    &:active {
-      filter: brightness(0.9);
-    }
-    &-first {
-      background: rgb(19, 73, 63);
-      background: linear-gradient(
-        54deg,
-        rgba(19, 73, 63, 1) 37%,
-        rgba(12, 123, 27, 1) 74%
-      );
-    }
-    &-second {
-      background: rgb(19, 41, 73);
-      background: linear-gradient(
-        54deg,
-        rgba(19, 41, 73, 1) 37%,
-        rgba(12, 123, 103, 1) 74%
-      );
-    }
-    &-third {
-      background: rgb(73, 48, 19);
-      background: linear-gradient(
-        54deg,
-        rgba(73, 48, 19, 1) 37%,
-        rgba(123, 12, 59, 1) 74%
-      );
-    }
-    &-fourth {
-      background: rgb(40, 19, 73);
-      background: linear-gradient(
-        54deg,
-        rgba(40, 19, 73, 1) 37%,
-        rgba(114, 12, 123, 1) 74%
-      );
     }
   }
 }
