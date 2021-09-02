@@ -1,0 +1,31 @@
+@import "../../styles/main.scss";
+
+.wrapper {
+  display: flex;
+  @include from($mobile) {
+    min-height: 100vh;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 32px 64px 0 64px;
+  flex: 1 1 47.8%;
+  @include from($laptop) {
+    flex: 1 1 53.6%;
+    padding: 32px 32px 0 32px;
+  }
+  @include from($mobile) {
+    min-width: 320px;
+    padding: 0;
+  }
+}
+
+.main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
