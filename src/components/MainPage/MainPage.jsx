@@ -1,5 +1,6 @@
 import React from "react";
 import "./MainPage.scss";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Carousel from "../Carousel/Carousel";
 import SideBar from "../SideBar/SideBar";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
@@ -11,9 +12,10 @@ import ButtonMainPage from "../ButtonMainPage/ButtonMainPage";
 const MainPage = () => {
   return (
     <>
+    <Router>
       <div className="wrapper">
         <SideBar />
-        <HamburgerMenu />
+        <HamburgerMenu sliderOpacity='slider-opacity_main-page'/>
         <div className="content">
           <header className="header">
             <Header />
@@ -28,6 +30,7 @@ const MainPage = () => {
         </div>
         <Carousel />
       </div>
+      </Router>
     </>
   );
 };

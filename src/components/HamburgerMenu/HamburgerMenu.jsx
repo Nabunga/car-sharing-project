@@ -5,7 +5,7 @@ import { ReactComponent as InstagramIcon } from "../../assets/icons/instagram-ic
 import "./HamburgerMenu.scss";
 import LanguageSwitch from "../LanguageSwitch/LanguageSwitch";
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ sliderOpacity }) => {
   return (
     <div className="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
@@ -52,7 +52,7 @@ const HamburgerMenu = () => {
             idClassName="hamburger-id"
           />
         </div>
-        <div className="slider-opacity"></div>
+        <div className={sliderOpacity}></div>
       </div>
     </div>
   );
