@@ -1,0 +1,93 @@
+@import "../../styles/main.scss";
+
+.order-details {
+  border-left: 1px solid $gray-light;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 5%;
+  &__container {
+    padding: 32px 64px 0 64px;
+  }
+  &__header {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: $black;
+    text-align: end;
+    @include from($laptop) {
+      text-align: start;
+    }
+  }
+  &__price {
+    margin-top: 32px;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $black;
+    &_bold {
+      font-weight: 500;
+    }
+  }
+}
+
+.order-list {
+  margin-top: 24px;
+}
+
+.order-list li {
+  display: flex;
+  align-items: flex-end;
+}
+
+.order-list li .title {
+  order: 1;
+}
+
+.order-list li .value {
+  order: 3;
+}
+
+.order-list li::after {
+  background-image: radial-gradient(
+    circle,
+    currentcolor -3px,
+    transparent 1.5px
+  );
+  background-position: bottom;
+  background-size: 1ex 3px;
+  background-repeat: space no-repeat;
+  content: "";
+  flex-grow: 1;
+  height: 1em;
+  order: 2;
+}
+
+.title {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: $black;
+}
+
+.value {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: $gray;
+}
+
+.btn_disabled {
+  width: 287px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: $gray-light;
+  color: #fff;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 1.8rem;
+  margin-top: 32px;
+  @include from($laptop) {
+    margin-top: 16px;
+  }
+}

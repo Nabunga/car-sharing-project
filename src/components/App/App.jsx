@@ -4,8 +4,8 @@ import MainPage from '../MainPage/MainPage';
 import OrderPage from '../OrderPage/OrderPage';
 
 const App = () => {
-  return <MainPage />
-  // return <OrderPage />
+  // return <MainPage />
+  return <OrderPage />
 };
 
 export default App;
