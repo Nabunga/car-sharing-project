@@ -7,10 +7,10 @@ const OrderDetails = () => {
     <div className="order-details">
       <div className="order-details__container">
         <h2 className="order-details__header">Ваш заказ:</h2>
-        <ul class="order-list">
+        <ul className="order-list">
           <li>
-            <span class="title">Пункт выдачи</span>
-            <span class="value">
+            <span className="title">Пункт выдачи</span>
+            <span className="value">
               Ульяновск,
               <br /> Нариманова 42
             </span>

@@ -6,6 +6,8 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import OrderTabs from "../OrderTabs/OrderTabs";
 import OrderLocation from "../OrderLocation/OrderLocation";
 import OrderDetails from "../OrderDetails/OrderDetails";
+import OrderModel from "../OrderModel/OrderModel";
+import { Route, Switch } from "react-router";
 
 const OrderPage = () => {
   return (
@@ -22,6 +24,10 @@ const OrderPage = () => {
           </nav>
           <main>
             <div className="main__content">
+              {/* <Switch>
+                <Route path='/order-page/' component={OrderLocation} />
+                <Route path='/order-page/model' component={OrderModel} />
+              </Switch> */}
               <OrderLocation />
               <OrderDetails />
             </div>

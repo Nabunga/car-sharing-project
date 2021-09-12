@@ -2,7 +2,7 @@
 
 .order-details {
   border-left: 1px solid $gray-light;
-  height: 100vh;
+  height: 84vh;
   display: flex;
   flex-direction: column;
   flex: 1 1 5%;
@@ -88,6 +88,6 @@
   font-size: 1.8rem;
   margin-top: 32px;
   @include from($laptop) {
-    margin-top: 16px;
+    margin: 16px 0;
   }
 }
