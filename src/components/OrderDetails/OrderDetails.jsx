@@ -20,8 +20,8 @@ const OrderDetails = () => {
           <span className="order-details__price_bold">Цена:</span> от 8 000 до
           12 000 ₽
         </p>
-        <ButtonMainPage title="Выбрать модель" className="btn_disabled" />
       </div>
+      <ButtonMainPage title="Выбрать модель" className="btn_disabled" />
     </div>
   );
 };

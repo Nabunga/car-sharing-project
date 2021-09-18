@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <>
       <div>
-        <Link to='/'>
+        <Link to='/car-sharing-project'>
           <h2 className="header__brand-name brand-name">Need for drive</h2>
         </Link>
       </div>

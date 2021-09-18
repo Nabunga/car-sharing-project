@@ -1,13 +1,13 @@
 import React from "react";
-import "./OrderPage.scss";
+import '../OrderPage/OrderPage.scss';
 import Header from "../Header/Header";
 import SideBar from "../SideBar/SideBar";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import OrderTabs from "../OrderTabs/OrderTabs";
-import OrderLocation from "../OrderLocation/OrderLocation";
 import OrderDetails from "../OrderDetails/OrderDetails";
+import OrderModel from "../OrderModel/OrderModel";
 
-const OrderPage = () => {
+const OrderPageStepTwo = () => {
   return (
     <>
       <div className="wrapper">
@@ -22,7 +22,7 @@ const OrderPage = () => {
           </nav>
           <main>
             <div className="main__content">
-              <OrderLocation />
+              <OrderModel />
               <OrderDetails />
             </div>
           </main>
@@ -32,4 +32,4 @@ const OrderPage = () => {
   );
 };
 
-export default OrderPage;
+export default OrderPageStepTwo;

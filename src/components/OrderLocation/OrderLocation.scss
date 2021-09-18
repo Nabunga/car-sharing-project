@@ -20,6 +20,9 @@ input {
     flex-direction: column;
     flex: 1 1 auto;
     padding: 32px 0 0 64px;
+    @include from($mobile) {
+      padding: 32px 32px 0 64px;
+    }
   }
   &__map {
     margin-top: 45px;

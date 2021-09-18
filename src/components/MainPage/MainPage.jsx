@@ -8,7 +8,6 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ButtonMainPage from "../ButtonMainPage/ButtonMainPage";
-import OrderPage from "../OrderPage/OrderPage";
 
 const MainPage = () => {
   return (
@@ -22,7 +21,7 @@ const MainPage = () => {
           </header>
           <main className="main">
             <Main />
-            <Link to="/order-page">
+            <Link to="/order-page/location">
               <ButtonMainPage className="order-button" title="Забронировать" />
             </Link>
           </main>

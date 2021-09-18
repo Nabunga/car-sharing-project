@@ -11,7 +11,7 @@
   border-bottom: 1px solid $gray-light;
   height: 32px;
   @include from($mobile) {
-    height: 72%;
+    height: fit-content;
     flex-direction: column;
   }
 }
@@ -29,12 +29,15 @@
   }
 }
 
+.tabs {
+  &__item {
+    color: $black;
+  }
+}
+
 .item {
   &_active {
-    color: $black;
-    &:hover {
-      color: $main-accent;
-    }
+    color: $main-accent;
   }
   &_disabled {
     color: $gray;
