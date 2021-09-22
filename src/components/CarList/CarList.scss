@@ -1,28 +1,40 @@
 @import "../../styles/main.scss";
 
+::-webkit-scrollbar {
+  width: 15px;
+}
+
 .car-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   overflow-y: scroll;
   max-height: 72vh;
   margin-top: 48px;
   @include from($laptop) {
     max-height: 44vh;
   }
-  &__info {
-    border: 1px solid $gray-light;
-    &:hover {
-      border-color: $gray;
-      cursor: pointer;
-    }
-    &:active {
-      border-color: $main-accent;
-    }
+  @media screen and (max-width: "888px") {
+    flex-flow: column nowrap;
   }
 }
 
 .info {
+  border: 1px solid $gray-light;
+  min-width: 369px;
+  @media screen and (max-width: "888px") {
+    max-width: 665px;
+    margin-right: 20px;
+  }
+  &:hover {
+    border-color: $gray;
+    cursor: pointer;
+  }
+  &:active {
+    border-color: $main-accent;
+  }
   &-content {
+    display: flex;
+    flex-flow: column nowrap;
     padding: 16px;
   }
   &-title {
@@ -40,7 +52,6 @@
     margin-top: 3px;
   }
   &-img {
-    margin: 37px 0 0 79px;
-    object-fit: cover;
+    margin: 37px 0 0 auto;
   }
 }

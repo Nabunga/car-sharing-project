@@ -1,6 +1,6 @@
 import React from "react";
 import "./MainPage.scss";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Carousel from "../Carousel/Carousel";
 import SideBar from "../SideBar/SideBar";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";

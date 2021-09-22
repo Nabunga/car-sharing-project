@@ -7,9 +7,9 @@
   flex-direction: column;
   flex: 1 1 14%;
   &__container {
-    padding: 32px 64px 0 32px;
-    @include from($laptop) {
-      padding: 32px 64px 0 64px;
+    padding: 32px 64px 0 64px;
+    @include from($mobile) {
+      padding: 32px 64px 0 30px;
     }
   }
   &__header {
@@ -90,7 +90,7 @@
   font-weight: 500;
   font-size: 1.8rem;
   margin-top: 32px;
-  margin-left: 32px;
+  margin-left: 64px;
   @include from($laptop) {
     margin: 16px 0 16px 64px;
   }
