@@ -1,5 +1,51 @@
-@import '../../styles/main.scss';
+@import "../../styles/main.scss";
 
 .tabs {
   display: flex;
+  align-items: center;
+  margin-top: 32px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 1.4rem;
+  border-top: 1px solid $gray-light;
+  border-bottom: 1px solid $gray-light;
+  height: 32px;
+  @include from($mobile) {
+    height: fit-content;
+    flex-direction: column;
+  }
+}
+
+.tabs li {
+  margin-left: 16px;
+  @include from($mobile) {
+    margin-top: 5px;
+  }
+  &:first-child {
+    margin-left: 64px;
+    @include from($mobile) {
+      margin-left: 20px;
+    }
+  }
+}
+
+.tabs {
+  &__item {
+    color: $black;
+  }
+}
+
+.item {
+  &_active {
+    color: $main-accent;
+  }
+  &_disabled {
+    color: $gray;
+  }
+}
+
+.arrow-icon {
+  @include from($mobile) {
+    transform: rotate(90deg);
+  }
 }
