@@ -9,6 +9,7 @@ import OrderDetails from "../OrderDetails/OrderDetails";
 import { Switch, Route } from "react-router-dom";
 import OrderModel from "../OrderModel/OrderModel";
 import OrderAdditionally from "../OrderAdditionally/OrderAdditionally";
+import OrderTotal from "../OrderTotal/OrderTotal";
 
 const OrderPage = () => {
   return (
@@ -31,11 +32,19 @@ const OrderPage = () => {
                   exact
                   component={OrderLocation}
                 />
-                <Route path="/order-page/model" exact component={OrderModel} />
+                <Route 
+                  path="/order-page/model" 
+                  exact 
+                  component={OrderModel} />
                 <Route
                   path="/order-page/additionally"
                   exact
                   component={OrderAdditionally}
+                />
+                <Route
+                  path="/order-page/total"
+                  exact
+                  component={OrderTotal}
                 />
               </Switch>
               <OrderDetails />
