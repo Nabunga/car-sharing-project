@@ -2,7 +2,7 @@ import React from "react";
 import "./OrderDetails.scss";
 import ButtonMainPage from "../ButtonMainPage/ButtonMainPage";
 
-const OrderDetails = () => {
+const OrderDetails = ({ setActive }) => {
   return (
     <div className="order-details">
       <div className="order-details__container">
@@ -21,7 +21,11 @@ const OrderDetails = () => {
           12 000 ₽
         </p>
       </div>
-      <ButtonMainPage title="Выбрать модель" className="btn_disabled" />
+      <ButtonMainPage
+        title="Выбрать модель"
+        className="btn_disabled"
+        openModal={() => setActive(true)}
+      />
     </div>
   );
 };

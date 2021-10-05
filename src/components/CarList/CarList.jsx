@@ -5,7 +5,7 @@ import { carsParams } from "../../constants";
 const CarList = () => {
   const renderedCarList = carsParams.map((car) => {
     return (
-      <div className="info">
+      <div className="info" key={car.name}>
         <div className="info-content">
           <h3 className="info-title">{car.name}</h3>
           <p className="info-price">{car.price}</p>
