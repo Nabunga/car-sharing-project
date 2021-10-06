@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import "../../styles/main.scss";
 
 .total {
   display: flex;
@@ -19,11 +19,6 @@
     flex-direction: column;
     align-items: center;
     min-height: 280px;
-  }
-  &__info {
-    @include from($mobile) {
-      margin-left: -55px;
-    }
   }
 }
 

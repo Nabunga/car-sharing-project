@@ -24,7 +24,10 @@ const OrderTabs = () => {
           <ArrowIcon className="arrow-icon" />
         </li>
         <li>
-          <Link to='/order-page/additionally' className="tabs__item item_disabled">
+          <Link
+            to="/order-page/additionally"
+            className="tabs__item item_disabled"
+          >
             Дополнительно
           </Link>
         </li>
@@ -32,7 +35,7 @@ const OrderTabs = () => {
           <ArrowIcon className="arrow-icon" />
         </li>
         <li>
-          <Link to='/order-page/total' className="tabs__item item_disabled">
+          <Link to="/order-page/total" className="tabs__item item_disabled">
             Итого
           </Link>
         </li>
