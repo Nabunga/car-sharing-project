@@ -1,10 +1,9 @@
 import React from "react";
-import { carListOptions } from "../../constants";
 
-const RadioGroup = () => {
-  const renderedOptions = carListOptions.map((option) => {
+const RadioGroup = ({ arrRadioGroup, classNamePattern }) => {
+  const renderedOptions = arrRadioGroup.map((option) => {
     return (
-      <div className={option.divClassName}>
+      <div className={option.divClassName} key={option.id}>
         <input
           className={option.inputClassName}
           type="radio"
@@ -19,7 +18,7 @@ const RadioGroup = () => {
     );
   });
 
-  return <div className="order-model__options">{renderedOptions}</div>;
+  return <div className={classNamePattern}>{renderedOptions}</div>;
 };
 
 export default RadioGroup;

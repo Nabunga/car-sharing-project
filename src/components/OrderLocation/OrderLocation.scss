@@ -1,6 +1,6 @@
 @import "../../styles/main.scss";
 
-input {
+#city-choise, #point-select, .pick-date__input {
   border-bottom: 1px solid $gray;
   width: 224px;
   &::-webkit-calendar-picker-indicator {
