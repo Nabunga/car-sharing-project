@@ -1,24 +1,60 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  getCarList,
+  getCarListByCategory,
+} from "../../store/asyncActions/asyncActions";
+import { setSelectedCategory } from "../../store/model/actions";
 
-const RadioGroup = ({ arrRadioGroup, classNamePattern }) => {
-  const renderedOptions = arrRadioGroup.map((option) => {
+const RadioGroup = ({ categoryList }) => {
+  const dispatch = useDispatch();
+
+  const renderedCategory = categoryList.map((category) => {
     return (
-      <div className={option.divClassName} key={option.id}>
+      <div className="order-model__input-group" key={category.id}>
         <input
-          className={option.inputClassName}
+          className="order-model__input input_first"
           type="radio"
-          id={option.id}
-          name={option.name}
-          value={option.value}
+          id={category.id}
+          name="category"
+          value={category.id}
         />
-        <label className={option.labelClassName} htmlFor={option.htmlFor}>
-          {option.content}
+        <label
+          className="order-model__label"
+          htmlFor={category.id}
+          onClick={() => {
+            dispatch(setSelectedCategory(category.id));
+            dispatch(getCarListByCategory(category.id));
+          }}
+        >
+          {category.name}
         </label>
       </div>
     );
   });
 
-  return <div className={classNamePattern}>{renderedOptions}</div>;
+  return (
+    <div className="order-model__options">
+      <input
+        className="order-model__input input_first"
+        type="radio"
+        id="all"
+        name="category"
+        value="all"
+      />
+      <label
+        className="order-model__label"
+        htmlFor="all"
+        onClick={() => {
+          dispatch(getCarList());
+          dispatch(setSelectedCategory("Все"));
+        }}
+      >
+        Все
+      </label>
+      {renderedCategory}
+    </div>
+  );
 };
 
 export default RadioGroup;

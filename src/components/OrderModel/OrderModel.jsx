@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CarList from "../CarList/CarList";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import "./OrderModel.scss";
-import { carListOptions } from '../../constants'
+import { useSelector, useDispatch } from "react-redux";
+import { getCategoryList } from "../../store/asyncActions/asyncActions";
 
 const OrderModel = () => {
+  const dispatch = useDispatch();
+  const categoryList = useSelector(
+    (state) => state.carListReducer.categoryList
+  );
+
+  useEffect(() => {
+    dispatch(getCategoryList(categoryList));
+  }, []);
+
   return (
     <div className="order-model">
-      <RadioGroup arrRadioGroup={carListOptions} classNamePattern='order-model__options'/>
+      <RadioGroup categoryList={categoryList} />
       <CarList />
     </div>
   );
