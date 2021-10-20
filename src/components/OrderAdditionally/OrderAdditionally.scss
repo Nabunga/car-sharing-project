@@ -1,5 +1,12 @@
 @import "../../styles/main.scss";
 
+input {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: $black;
+}
+
 .additionally {
   display: flex;
   flex-flow: column nowrap;

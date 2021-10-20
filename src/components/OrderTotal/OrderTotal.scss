@@ -1,0 +1,56 @@
+@import "../../styles/main.scss";
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 54%;
+  padding-right: 16%;
+  padding-left: 64px;
+  margin-top: 32px;
+  @include from($laptop) {
+    padding-right: 3%;
+  }
+  @include from($tablet) {
+    padding-right: 5%;
+  }
+  @include from($mobile) {
+    padding-left: 32px;
+    padding-right: 5%;
+    flex-direction: column;
+    align-items: center;
+    min-height: 280px;
+  }
+}
+
+.info {
+  &__carname {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: $black;
+  }
+  &__license-plate {
+    width: 94px;
+    height: 24px;
+    border: 1px solid $gray;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: $black;
+    margin-top: 8px;
+  }
+  &__details {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: $black;
+    margin-top: 8px;
+    &_bold {
+      font-weight: 500;
+    }
+  }
+}
