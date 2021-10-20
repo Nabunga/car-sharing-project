@@ -11,7 +11,9 @@ const CarList = () => {
   const selectedCategory = useSelector(
     (state) => state.carListReducer.selectedCategory
   );
-  const carListByCategory = useSelector((state) => state.carListReducer.carListByCategory);
+  const carListByCategory = useSelector(
+    (state) => state.carListReducer.carListByCategory
+  );
 
   const renderedCarList = carList.map((car) => {
     return (
@@ -71,7 +73,11 @@ const CarList = () => {
     );
   });
 
-  return selectedCategory === 'Все' ? <div className="car-list">{renderedCarList}</div> : <div className="car-list">{renderedCarListByCategory}</div>;
+  return selectedCategory === "Все" ? (
+    <div className="car-list">{renderedCarList}</div>
+  ) : (
+    <div className="car-list">{renderedCarListByCategory}</div>
+  );
 };
 
 export default CarList;

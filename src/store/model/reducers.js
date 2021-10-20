@@ -21,7 +21,7 @@ export const carListReducer = (state = defaultState, action) => {
     case GET_CAR_LIST:
       return { ...state, carList: action.payload };
     case GET_CAR_LIST_BY_CATEGORY:
-      return { ...state, carListByCategory: action.payload}
+      return { ...state, carListByCategory: action.payload };
     case GET_CATEGORY_LIST:
       return { ...state, categoryList: action.payload };
     case GET_SELECTED_CATEGORY:
