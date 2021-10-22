@@ -69,3 +69,11 @@
     margin-left: 0;
   }
 }
+
+.order-model__options.colors {
+  margin-top: 6px;
+  margin-left: 64px;
+  @include from($mobile) {
+    margin-left: 32px;
+  }
+}

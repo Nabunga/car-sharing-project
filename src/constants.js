@@ -25,65 +25,6 @@ const sliderArr = [
   },
 ];
 
-const rate = [
-  {
-    divClassName: "order-model__input-group",
-    inputClassName: "order-model__input input_first",
-    type: "radio",
-    id: "perMinute",
-    name: "car-options",
-    value: "perMinute",
-    labelClassName: "rate__label",
-    htmlFor: "perMinute",
-    content: "Поминутно, 7₽/мин",
-  },
-  {
-    divClassName: "order-model__input-group",
-    inputClassName: "order-model__input input_first",
-    type: "radio",
-    id: "perDay",
-    name: "car-options",
-    value: "perDay",
-    labelClassName: "rate__label",
-    htmlFor: "perDay",
-    content: "На сутки, 1999 ₽/сутки",
-  },
-]
 
-const carColorOptions = [
-  {
-    divClassName: "order-model__input-group",
-    inputClassName: "order-model__input input_first",
-    type: "radio",
-    id: "all",
-    name: "car-options",
-    value: "all",
-    labelClassName: "order-model__label",
-    htmlFor: "all",
-    content: "Любой",
-  },
-  {
-    divClassName: "order-model__input-group",
-    inputClassName: "order-model__input input_first",
-    type: "radio",
-    id: "red",
-    name: "car-options",
-    value: "red",
-    labelClassName: "order-model__label",
-    htmlFor: "red",
-    content: "Красный",
-  },
-  {
-    divClassName: "order-model__input-group",
-    inputClassName: "order-model__input input_first",
-    type: "radio",
-    id: "blue",
-    name: "car-options",
-    value: "blue",
-    labelClassName: "order-model__label",
-    htmlFor: "blue",
-    content: "Голубой",
-  },
-];
 
-export { sliderArr, carColorOptions, rate };
+export { sliderArr };

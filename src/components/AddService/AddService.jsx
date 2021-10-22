@@ -1,7 +1,12 @@
 import React from "react";
 import "./AddService.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { setAddOptions } from "../../store/additionally/actions";
 
 const AddService = () => {
+  const dispatch = useDispatch();
+
+
   return (
     <div className="add-service">
 

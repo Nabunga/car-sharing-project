@@ -3,11 +3,12 @@ import "./PickDate.scss";
 import { ReactComponent as CrossIcon } from "../../assets/icons/cross-icon.svg";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import { useSelector, useDispatch } from "react-redux";
+import { setStartDate, setEndDate } from "../../store/additionally/actions";
 
 const PickDate = () => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const dispatch = useDispatch();
+  const { startDate, endDate } = useSelector((state) => state.additionallyReducer);
 
   return (
     <div className="pick-date">
@@ -15,7 +16,7 @@ const PickDate = () => {
         С
         <DatePicker
           selected={startDate}
-          onChange={(date) => setStartDate(date)}
+          onChange={(date) => dispatch(setStartDate(date))}
           selectsStart
           startDate={startDate}
           endDate={endDate}
@@ -23,13 +24,13 @@ const PickDate = () => {
           dateFormat="dd.MM.yyyy h:mm"
           placeholderText='Введите дату и время'
         />
-        <CrossIcon className="pick-date__cross-icon cross-icon_first" />
+        <CrossIcon className="pick-date__cross-icon cross-icon_first" onClick={() => dispatch(setStartDate(null))}/>
       </label>
       <label className="pick-date__label" htmlFor="dateTo">
         По
         <DatePicker
           selected={endDate}
-          onChange={(date) => setEndDate(date)}
+          onChange={(date) => dispatch(setEndDate(date))}
           selectsEnd
           startDate={startDate}
           endDate={endDate}
@@ -38,7 +39,7 @@ const PickDate = () => {
           dateFormat="dd.MM.yyyy h:mm"
           placeholderText='Введите дату и время'
         />
-        <CrossIcon className="pick-date__cross-icon cross-icon_second" />
+        <CrossIcon className="pick-date__cross-icon cross-icon_second" onClick={() => dispatch(setEndDate(null))}/>
       </label>
     </div>
   );
