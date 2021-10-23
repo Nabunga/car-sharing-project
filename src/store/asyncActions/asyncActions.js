@@ -1,32 +1,6 @@
 import api from "../../axios/api";
-import {
-  setCarList,
-  setCategoryList,
-  setCarListByCategory,
-} from "../model/actions";
+import { setCarList, setCategoryList } from "../model/actions";
 import { setRate } from "../additionally/actions";
-
-export function getCarList() {
-  return (dispatch) => {
-    api.get("/db/car").then((res) => {
-      dispatch(setCarList(res.data.data));
-    });
-  };
-}
-
-export function getCarListByCategory(catId) {
-  return (dispatch) => {
-    api
-      .get("/db/car", {
-        params: {
-          categoryId: catId,
-        },
-      })
-      .then((res) => {
-        dispatch(setCarListByCategory(res.data.data));
-      });
-  };
-}
 
 export function getCategoryList() {
   return (dispatch) => {
@@ -41,5 +15,34 @@ export function getRate() {
     api.get("/db/rateType").then((res) => {
       dispatch(setRate(res.data.data));
     });
+  };
+}
+
+export function getCarList(catId) {
+  let url = "/db/car";
+  if (catId) {
+    url += `?categoryId=${catId}`;
+    return (dispatch) => {
+      api
+        .get(url, {
+          params: {
+            limit: "20",
+          },
+        })
+        .then((res) => {
+          dispatch(setCarList(res.data.data));
+        });
+    };
+  }
+  return (dispatch) => {
+    api
+      .get(url, {
+        params: {
+          limit: "20",
+        },
+      })
+      .then((res) => {
+        dispatch(setCarList(res.data.data));
+      });
   };
 }

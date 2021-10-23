@@ -1,16 +1,17 @@
 import React from "react";
 import "./CarList.scss";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Car from "../Сar/Car";
+import { getCarList } from "../../store/asyncActions/asyncActions";
 
 const CarList = () => {
-  const { carList, selectedCategory, carListByCategory } = useSelector((state) => state.carListReducer);
+  const dispatch = useDispatch();
   
-  return selectedCategory === "Все" ? (
-    <div className="car-list"><Car carList={carList}/></div>
-  ) : (
-    <div className="car-list"><Car carList={carListByCategory}/></div>
-  );
+  React.useEffect(() => {
+    dispatch(getCarList());
+  }, [])
+  
+  return <div className="car-list"><Car /></div> 
 };
 
 export default CarList;

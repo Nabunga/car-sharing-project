@@ -7,12 +7,10 @@ import { getCategoryList } from "../../store/asyncActions/asyncActions";
 
 const OrderModel = () => {
   const dispatch = useDispatch();
-  const categoryList = useSelector(
-    (state) => state.carListReducer.categoryList
-  );
+  const { categoryList } = useSelector((state) => state.carListReducer);
 
   useEffect(() => {
-    dispatch(getCategoryList(categoryList));
+    dispatch(getCategoryList());
   }, []);
 
   return (

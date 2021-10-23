@@ -1,14 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setActiveCard,
-  setActiveCarInfo,
-} from "../../store/model/actions";
+import { setActiveCard, setActiveCarInfo } from "../../store/model/actions";
 import { URL_FOR_IMAGES } from "../../axios/api";
 
-const Car = ({ carList }) => {
+const Car = () => {
   const dispatch = useDispatch();
-  const { activeCard } = useSelector((state) => state.carListReducer);
+  const { activeCard, carList } = useSelector((state) => state.carListReducer);
 
   const renderedCarList = carList.map((car) => {
     return (
@@ -16,7 +13,6 @@ const Car = ({ carList }) => {
         className={activeCard === car.id ? "info info-active" : "info"}
         key={car.id}
         onClick={() => {
-          
           dispatch(setActiveCard(car.id));
           dispatch(setActiveCarInfo(car));
         }}

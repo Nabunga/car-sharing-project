@@ -1,9 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  getCarList,
-  getCarListByCategory,
-} from "../../store/asyncActions/asyncActions";
+import { getCarList } from "../../store/asyncActions/asyncActions";
 import { setSelectedCategory } from "../../store/model/actions";
 
 const RadioGroup = ({ categoryList }) => {
@@ -24,7 +21,7 @@ const RadioGroup = ({ categoryList }) => {
           htmlFor={category.id}
           onClick={() => {
             dispatch(setSelectedCategory(category.id));
-            dispatch(getCarListByCategory(category.id));
+            dispatch(getCarList(category.id));
           }}
         >
           {category.name}
@@ -41,13 +38,13 @@ const RadioGroup = ({ categoryList }) => {
         id="all"
         name="category"
         value="all"
+        defaultChecked
       />
       <label
         className="order-model__label"
         htmlFor="all"
         onClick={() => {
           dispatch(getCarList());
-          dispatch(setSelectedCategory("Все"));
         }}
       >
         Все
