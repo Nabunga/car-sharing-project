@@ -4,8 +4,16 @@ import ButtonMainPage from "../ButtonMainPage/ButtonMainPage";
 import { useSelector } from "react-redux";
 
 const OrderDetails = ({ setActive }) => {
-  const {activeCarInfo} = useSelector(state => state.carListReducer);
-  const { selectedColor, startDate, endDate, selectedRate} = useSelector(state => state.additionallyReducer);
+  const { activeCarInfo } = useSelector((state) => state.carListReducer);
+  const {
+    selectedColor,
+    startDate,
+    endDate,
+    selectedRate,
+    isFullTank,
+    isNeedChildChair,
+    isRightWheel,
+  } = useSelector((state) => state.additionallyReducer);
 
   return (
     <div className="order-details">
@@ -21,21 +29,27 @@ const OrderDetails = ({ setActive }) => {
           </li>
           <li>
             <span className="title">Модель</span>
-            <span className="value">
-              {activeCarInfo.name}
-            </span>
+            <span className="value">{activeCarInfo.name}</span>
           </li>
           <li>
             <span className="title">Цвет</span>
-            <span className="value">
-              {selectedColor}
-            </span>
+            <span className="value">{selectedColor}</span>
           </li>
           <li>
             <span className="title">Тариф</span>
-            <span className="value">
-              {selectedRate}
-            </span>
+            <span className="value">{selectedRate}</span>
+          </li>
+          <li>
+            <span className="title">Полный бак</span>
+            <span className="value">{isFullTank ? "Да" : "Нет"}</span>
+          </li>
+          <li>
+            <span className="title">Детское кресло</span>
+            <span className="value">{isNeedChildChair ? "Да" : "Нет"}</span>
+          </li>
+          <li>
+            <span className="title">Правый руль</span>
+            <span className="value">{isRightWheel ? "Да" : "Нет"}</span>
           </li>
         </ul>
         <p className="order-details__price">

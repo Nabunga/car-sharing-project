@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CarList from "../CarList/CarList";
-import RadioGroup from "../RadioGroup/RadioGroup";
+import RadioGroupCarCategory from "../RadioGroupCarCategory/RadioGroupCarCategory";
 import "./OrderModel.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { getCategoryList } from "../../store/asyncActions/asyncActions";
@@ -15,7 +15,7 @@ const OrderModel = () => {
 
   return (
     <div className="order-model">
-      <RadioGroup categoryList={categoryList} />
+      <RadioGroupCarCategory categoryList={categoryList} />
       <CarList />
     </div>
   );

@@ -1,4 +1,13 @@
-import { GET_SELECTED_COLOR, GET_START_DATE, GET_END_DATE, GET_RATE, GET_SELECTED_RATE, GET_ADD_OPTIONS } from "./actions";
+import {
+  GET_SELECTED_COLOR,
+  GET_START_DATE,
+  GET_END_DATE,
+  GET_RATE,
+  GET_SELECTED_RATE,
+  CHANGE_TANK_OPTION,
+  CHANGE_CHILD_CHAIR_OPTION,
+  CHANGE_WHEEL_OPTION
+} from "./actions";
 
 const defaultState = {
   selectedColor: "",
@@ -6,7 +15,9 @@ const defaultState = {
   endDate: null,
   rate: [],
   selectedRate: "",
-  addOptions: [],
+  isFullTank: false,
+  isNeedChildChair: false,
+  isRightWheel: false,
 };
 
 export const additionallyReducer = (state = defaultState, action) => {
@@ -21,8 +32,12 @@ export const additionallyReducer = (state = defaultState, action) => {
       return { ...state, rate: action.payload };
     case GET_SELECTED_RATE:
       return { ...state, selectedRate: action.payload };
-    case GET_ADD_OPTIONS:
-      return { ...state, addOptions: action.payload };
+    case CHANGE_TANK_OPTION:
+      return { ...state, isFullTank: action.payload };
+    case CHANGE_CHILD_CHAIR_OPTION:
+      return { ...state, isNeedChildChair: action.payload };
+    case CHANGE_WHEEL_OPTION:
+      return { ...state, isRightWheel: action.payload };
 
     default:
       return state;
