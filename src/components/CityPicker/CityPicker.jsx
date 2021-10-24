@@ -1,7 +1,17 @@
 import React from "react";
 import { ReactComponent as CrossIcon } from "../../assets/icons/cross-icon.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { setCity } from "../../store/location/actions";
 
-const CityPicker = () => {
+const CityPicker = ({ cities }) => {
+  const dispatch = useDispatch();
+  const { selectedCity } = useSelector((state) => state.locationReducer);
+  console.log(selectedCity);
+
+  const renderedCities = cities.map(city => {
+    return <option key={city.name} value={city.name} />
+  })
+
   return (
     <div className="city-input">
       <label className="input-label" htmlFor="city-choise">
@@ -12,15 +22,12 @@ const CityPicker = () => {
         id="city-choise"
         name="city-choise"
         placeholder="Выберите город"
-        autoComplete="on"
+        
       />
-      <datalist id="city-options">
-        <option value="Ульяновск"></option>
-        <option value="Самара"></option>
-        <option value="Саранск"></option>
-        <option value="Краснодар"></option>
+      <datalist id="city-options" onChange={() => dispatch(setCity())}>
+        {renderedCities}
       </datalist>
-      <CrossIcon className="cross-icon" />
+      <CrossIcon className="cross-icon" onClick={() => dispatch(setCity(null))} />
     </div>
   );
 };
