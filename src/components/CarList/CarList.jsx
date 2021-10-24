@@ -1,21 +1,17 @@
 import React from "react";
 import "./CarList.scss";
-import { carsParams } from "../../constants";
+import { useDispatch } from "react-redux";
+import Car from "../Сar/Car";
+import { getCarList } from "../../store/asyncActions/asyncActions";
 
 const CarList = () => {
-  const renderedCarList = carsParams.map((car) => {
-    return (
-      <div className="info" key={car.name}>
-        <div className="info-content">
-          <h3 className="info-title">{car.name}</h3>
-          <p className="info-price">{car.price}</p>
-          <img className="info-img" src={car.pic} alt="elantra" />
-        </div>
-      </div>
-    );
-  });
-
-  return <div className="car-list">{renderedCarList}</div>;
+  const dispatch = useDispatch();
+  
+  React.useEffect(() => {
+    dispatch(getCarList());
+  }, [])
+  
+  return <div className="car-list"><Car /></div> 
 };
 
 export default CarList;

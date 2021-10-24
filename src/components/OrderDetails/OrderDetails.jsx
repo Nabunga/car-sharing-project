@@ -1,8 +1,12 @@
 import React from "react";
 import "./OrderDetails.scss";
 import ButtonMainPage from "../ButtonMainPage/ButtonMainPage";
+import { useSelector } from "react-redux";
 
 const OrderDetails = ({ setActive }) => {
+  const {activeCarInfo} = useSelector(state => state.carListReducer);
+  const { selectedColor, startDate, endDate, selectedRate} = useSelector(state => state.additionallyReducer);
+
   return (
     <div className="order-details">
       <div className="order-details__container">
@@ -13,6 +17,24 @@ const OrderDetails = ({ setActive }) => {
             <span className="value">
               Ульяновск,
               <br /> Нариманова 42
+            </span>
+          </li>
+          <li>
+            <span className="title">Модель</span>
+            <span className="value">
+              {activeCarInfo.name}
+            </span>
+          </li>
+          <li>
+            <span className="title">Цвет</span>
+            <span className="value">
+              {selectedColor}
+            </span>
+          </li>
+          <li>
+            <span className="title">Тариф</span>
+            <span className="value">
+              {selectedRate}
             </span>
           </li>
         </ul>

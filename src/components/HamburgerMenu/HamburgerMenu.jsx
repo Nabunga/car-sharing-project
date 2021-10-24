@@ -16,36 +16,36 @@ const HamburgerMenu = ({ sliderOpacity }) => {
         <div className="menu-content">
           <ul className="menu__list">
             <li>
-              <a className="menu__item" href="#">
+              <button className="menu__item" href="#">
                 Парковка
-              </a>
+              </button>
             </li>
             <li>
-              <a className="menu__item" href="#">
+              <button className="menu__item" href="#">
                 Страховка
-              </a>
+              </button>
             </li>
             <li>
-              <a className="menu__item" href="#">
+              <button className="menu__item" href="#">
                 Бензин
-              </a>
+              </button>
             </li>
             <li>
-              <a className="menu__item" href="#">
+              <button className="menu__item" href="#">
                 Обслуживание
-              </a>
+              </button>
             </li>
           </ul>
           <div className="socials">
-            <a href="#">
+            <button href="#">
               <TelegramIcon className="socials__icon" />
-            </a>
-            <a href="#">
+            </button>
+            <button href="#">
               <FacebookIcon className="socials__icon" />
-            </a>
-            <a href="#">
+            </button>
+            <button href="#">
               <InstagramIcon className="socials__icon" />
-            </a>
+            </button>
           </div>
           <LanguageSwitch
             divClassName="hamburger__language-box"

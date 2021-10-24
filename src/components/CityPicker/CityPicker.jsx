@@ -14,6 +14,12 @@ const CityPicker = () => {
         placeholder="Выберите город"
         autoComplete="on"
       />
+      <datalist id="city-options">
+        <option value="Ульяновск"></option>
+        <option value="Самара"></option>
+        <option value="Саранск"></option>
+        <option value="Краснодар"></option>
+      </datalist>
       <CrossIcon className="cross-icon" />
     </div>
   );

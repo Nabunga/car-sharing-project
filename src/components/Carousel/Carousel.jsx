@@ -23,9 +23,9 @@ SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
 export default function Carousel() {
   const renderedSlider = sliderArr.map((slide) => {
     return (
-      <SwiperSlide>
+      <SwiperSlide key={slide.header}>
         <Slider
-          key={slide.header}
+          
           header={slide.header}
           text={slide.text}
           className={slide.className}

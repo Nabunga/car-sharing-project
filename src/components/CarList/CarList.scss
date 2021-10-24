@@ -29,9 +29,6 @@
     border-color: $gray;
     cursor: pointer;
   }
-  &:active {
-    border-color: $main-accent;
-  }
   &-content {
     display: flex;
     flex-flow: column nowrap;
@@ -52,6 +49,15 @@
     margin-top: 3px;
   }
   &-img {
+    width: 300px;
+    height: 110px;
     margin: 37px 0 0 auto;
+  }
+}
+
+.info-active {
+  border-color: $main-accent;
+  &:hover {
+    border-color: $main-accent;
   }
 }
