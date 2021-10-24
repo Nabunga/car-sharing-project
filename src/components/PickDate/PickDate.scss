@@ -1,0 +1,57 @@
+@import '../../styles/main.scss';
+
+.pick-date {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  flex-flow: column nowrap;
+  width: 315px;
+  @include from($mobile) {
+    margin-left: -33px;
+  }
+  &__label {
+    display: flex;
+    align-items: baseline;
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: $black;
+    margin: 16px 0 0 64px;
+    @include from($mobile) {
+      margin-left: 32px;
+    }
+  }
+  &__input {
+    margin-left: 8px;
+  }
+  &__cross-icon {
+    position: absolute;
+  }
+}
+.cross-icon {
+  &_first {
+    position: absolute;
+    top: 30%;
+    right: 2%;
+    cursor: pointer;
+  }
+  &_second {
+    position: absolute;
+    top: 80%;
+    right: 2%;
+    cursor: pointer;
+  }
+}
+
+.react-datepicker-wrapper {
+  margin-left: 8px;
+  border-bottom: 1px solid $gray !important;
+  width: 224px !important;
+}
+
+.react-datepicker-ignore-onclickoutside {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: $black;
+}

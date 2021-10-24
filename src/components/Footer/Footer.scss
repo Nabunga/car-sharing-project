@@ -1,0 +1,44 @@
+@import "../../styles/main.scss";
+
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: 72px;
+  @include from($mobile) {
+    background-color: $side-bar;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 16px;
+  }
+  &__phone {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: $black;
+    &:hover {
+      color: $main-accent;
+    }
+    @include from($mobile) {
+      padding-bottom: 8px;
+      color: $main-accent;
+      font-weight: 300;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+  &__rights-info {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: $gray;
+    @include from($mobile) {
+      color: #fff;
+      font-weight: 300;
+    }
+  }
+}

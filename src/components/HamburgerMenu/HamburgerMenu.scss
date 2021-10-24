@@ -1,0 +1,236 @@
+@import "../../styles/main.scss";
+
+.hamburger-menu {
+  width: 0;
+  height: 0;
+}
+
+#menu {
+  &__toggle {
+    opacity: 0;
+    &:checked ~ .menu__btn > span {
+      @include from($mobile) {
+        background-color: #fff;
+      }
+      transform: rotate(45deg);
+    }
+    &:checked ~ .menu__btn > span::before {
+      @include from($mobile) {
+        background-color: #fff;
+      }
+      top: 0;
+      transform: rotate(0);
+    }
+    &:checked ~ .menu__btn > span::after {
+      @include from($mobile) {
+        background-color: #fff;
+      }
+      top: 0;
+      transform: rotate(90deg);
+    }
+    &:checked ~ .menu__box {
+      visibility: visible;
+      left: 0;
+    }
+  }
+}
+
+.menu {
+  &-content {
+    display: flex;
+    flex: 1 1 52.2%;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #121212;
+    padding-left: 128px;
+    @include from($laptop) {
+      flex: 1 1 59.9%;
+      padding-left: 97px;
+    }
+    @include from($mobile) {
+      padding-top: 80px;
+      padding-left: 28px;
+      justify-content: flex-start;
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 32px;
+    left: 19px;
+
+    width: 26px;
+    height: 26px;
+
+    cursor: pointer;
+    z-index: 3;
+    @include from($laptop) {
+      left: 19px;
+    }
+    @include from($tablet) {
+      left: 30px;
+    }
+    @include from($mobile) {
+      left: 16px;
+      top: 16px;
+    }
+  }
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+
+    list-style: none;
+
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+
+    transition-duration: 0.25s;
+    z-index: 2;
+  }
+  &__item {
+    display: inline-block;
+    padding: 12px 0 12px 0;
+
+    color: #fff;
+
+    font-family: "Roboto";
+    font-size: 3.2rem;
+    font-weight: 500;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    transition-duration: 0.25s;
+    @include from($tablet) {
+      font-size: 2.8rem;
+    }
+    @include from($mobile) {
+      font-size: 2.2rem;
+    }
+    &:hover {
+      color: $main-accent;
+    }
+  }
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: #fff;
+
+  transition-duration: 0.25s;
+  @include from($mobile) {
+    background-color: $black;
+  }
+}
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+
+.slider-opacity {
+  &_main-page {
+    display: flex;
+    flex: 1 1 47.8%;
+    height: 100%;
+    background-color: $black;
+    opacity: 0.7;
+    @include from($laptop) {
+      flex: 1 1 40%;
+    }
+    @include from($tablet) {
+      display: none;
+    }
+  }
+  &_order-page {
+    display: none;
+  }
+}
+
+svg.socials__icon path {
+  fill: inherit;
+  stroke: inherit;
+  stroke-width: inherit;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+  width: 144px;
+  margin-top: 32px;
+  &__icon {
+    &:hover {
+      fill: $main-accent;
+    }
+  }
+}
+
+.hamburger__language-box {
+  display: none;
+  @include from($mobile) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    margin-bottom: 24px;
+  }
+  width: 48px;
+  height: 48px;
+  &:hover {
+    border: 1px solid white;
+    border-radius: 50%;
+  }
+}
+
+#hamburger-id {
+  position: absolute;
+  top: 35%;
+  left: 26%;
+  color: $main-accent;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 1.3rem;
+  &:hover {
+    color: $gray-light;
+  }
+  &:active {
+    color: $main-accent;
+  }
+}
+#switch-input {
+  display: none;
+}
+#switch-input:checked + #hamburger-id:after {
+  content: "Рус";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: $main-accent;
+  background-color: $side-bar;
+  &:hover {
+    color: $gray-light;
+  }
+  &:active {
+    color: $main-accent;
+  }
+}

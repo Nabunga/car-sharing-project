@@ -1,0 +1,36 @@
+@import "../../styles/main.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  @include from ($mobile) {
+    flex-direction: column;
+    padding: 16px 16px 0 0;
+  }
+}
+
+.brand-name {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 3rem;
+  color: $main-accent;
+  @include from ($mobile) {
+    text-align: right;
+  }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  @include from ($mobile) {
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+  &__city {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: $gray;
+    margin-left: 8px;
+  }
+}

@@ -1,0 +1,74 @@
+@import "../../styles/main.scss";
+
+#city-choise, #point-select, .pick-date__input {
+  border-bottom: 1px solid $gray;
+  width: 224px;
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+  &::placeholder {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: $gray;
+  }
+}
+
+.order {
+  &__location {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 32px 0 0 64px;
+    @include from($mobile) {
+      padding: 32px 32px 0 30px;
+    }
+  }
+  &__map {
+    margin-top: 45px;
+    &-image {
+      margin-top: 16px;
+      width: 85%;
+      max-width: 1025px;
+      min-width: 550px;
+      @include from($laptop) {
+        width: 47%;
+      }
+      @include from($mobile) {
+        min-width: 325px;
+      }
+    }
+  }
+}
+
+.input-label {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: $black;
+  margin-right: 8px;
+}
+
+.point-input {
+  margin-top: 13px;
+}
+
+.order-inputs {
+  position: relative;
+  width: 324px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.cross-icon {
+  position: absolute;
+  right: 10px;
+}
+
+#city-choise {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: $black;
+}
