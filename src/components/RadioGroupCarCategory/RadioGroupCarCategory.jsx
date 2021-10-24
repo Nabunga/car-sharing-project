@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCarList } from "../../store/asyncActions/asyncActions";
 import { setSelectedCategory } from "../../store/model/actions";
 
-const RadioGroup = ({ categoryList }) => {
+const RadioGroupCarCategory = ({ categoryList }) => {
   const dispatch = useDispatch();
 
   const renderedCategory = categoryList.map((category) => {
@@ -54,4 +54,4 @@ const RadioGroup = ({ categoryList }) => {
   );
 };
 
-export default RadioGroup;
+export default RadioGroupCarCategory;
