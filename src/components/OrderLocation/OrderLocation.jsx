@@ -18,8 +18,6 @@ const OrderLocation = () => {
     dispatch(getPoints());
   }, [])
 
-  console.log(points);
-
   return (
     <div className="order__location">
       <div className="order-inputs">

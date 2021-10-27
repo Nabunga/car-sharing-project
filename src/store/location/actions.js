@@ -1,7 +1,7 @@
 export const GET_CITIES = 'GET_CITIES';
 export const SET_CITY = 'SET_CITY';
 export const GET_POINTS = 'GET_POINTS';
-export const SET_POINT = 'SET_POINT';
+export const SET_POINTS_FOR_SELECTED_CITY = 'SET_POINTS_FOR_SELECTED_CITY';
 
 export const setCities = (payload) => ({
   type: GET_CITIES,
@@ -17,8 +17,8 @@ export const setPoints = (payload) => ({
   payload,
 });
 
-export const setPoint = (payload) => ({
-  type: SET_POINT,
+export const setPointsForSelectedCity = (payload) => ({
+  type: SET_POINTS_FOR_SELECTED_CITY,
   payload,
 });
 

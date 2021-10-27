@@ -1,6 +1,8 @@
 @import "../../styles/main.scss";
 
-#city-choise, #point-select, .pick-date__input {
+#city-choise,
+#point-select,
+.pick-date__input {
   border-bottom: 1px solid $gray;
   width: 224px;
   &::-webkit-calendar-picker-indicator {
@@ -26,19 +28,13 @@
   }
   &__map {
     margin-top: 45px;
-    &-image {
-      margin-top: 16px;
-      width: 85%;
-      max-width: 1025px;
-      min-width: 550px;
-      @include from($laptop) {
-        width: 47%;
-      }
-      @include from($mobile) {
-        min-width: 325px;
-      }
-    }
   }
+}
+
+.map {
+  margin-top: 8px;
+  min-height: 350px;
+  width: 90%;
 }
 
 .input-label {
@@ -64,6 +60,7 @@
 .cross-icon {
   position: absolute;
   right: 10px;
+  cursor: pointer;
 }
 
 #city-choise {

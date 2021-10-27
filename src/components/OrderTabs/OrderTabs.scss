@@ -29,10 +29,8 @@
   }
 }
 
-.tabs {
-  &__item {
-    color: $black;
-  }
+.tabs__item {
+  color: $black;
 }
 
 .item {
@@ -41,6 +39,7 @@
   }
   &_disabled {
     color: $gray;
+    pointer-events: none;
   }
 }
 

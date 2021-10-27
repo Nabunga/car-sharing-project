@@ -25,7 +25,6 @@ export default function Carousel() {
     return (
       <SwiperSlide key={slide.header}>
         <Slider
-          
           header={slide.header}
           text={slide.text}
           className={slide.className}

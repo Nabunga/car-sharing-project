@@ -1,9 +1,12 @@
 import React from "react";
 import "./OrderDetails.scss";
 import ButtonMainPage from "../ButtonMainPage/ButtonMainPage";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setActiveIndex } from "../../store/tabs/actions";
+import { Link } from "react-router-dom";
 
 const OrderDetails = ({ setActive }) => {
+  const dispatch = useDispatch();
   const { activeCarInfo } = useSelector((state) => state.carListReducer);
   const {
     selectedColor,
@@ -14,6 +17,58 @@ const OrderDetails = ({ setActive }) => {
     isNeedChildChair,
     isRightWheel,
   } = useSelector((state) => state.additionallyReducer);
+  const { selectedCity, pointsForSelectedCity } = useSelector(
+    (state) => state.locationReducer
+  );
+  const { activeIndex } = useSelector((state) => state.tabsReducer);
+
+  const btnText = () => {
+    switch (activeIndex) {
+      case 2:
+        return "Дополнительно";
+      case 3:
+        return "Итого";
+      case 4:
+        return "Заказать";
+      default:
+        return "Выбрать модель";
+    }
+  };
+
+  const btnClassName = () => {
+    if (activeIndex === 1 && selectedCity && pointsForSelectedCity) {
+      return "btn";
+    }
+    if (activeIndex === 2 && activeCarInfo.name) {
+      return "btn";
+    }
+    if (
+      activeIndex === 3 &&
+      selectedColor &&
+      startDate &&
+      endDate &&
+      selectedRate
+    ) {
+      return "btn";
+    }
+    if (activeIndex === 4) {
+      return "btn";
+    }
+    return "btn btn_disabled";
+  };
+
+  const btnLink = () => {
+    switch (activeIndex) {
+      case 1:
+        return "/order-page/model";
+      case 2:
+        return "/order-page/additionally";
+      case 3:
+        return "/order-page/total";
+      default:
+        return "/order-page/total";
+    }
+  };
 
   return (
     <div className="order-details">
@@ -23,8 +78,8 @@ const OrderDetails = ({ setActive }) => {
           <li>
             <span className="title">Пункт выдачи</span>
             <span className="value">
-              Ульяновск,
-              <br /> Нариманова 42
+              {selectedCity},
+              <br /> {pointsForSelectedCity}
             </span>
           </li>
           <li>
@@ -57,11 +112,16 @@ const OrderDetails = ({ setActive }) => {
           12 000 ₽
         </p>
       </div>
-      <ButtonMainPage
-        title="Выбрать модель"
-        className="btn_disabled"
-        openModal={() => setActive(true)}
-      />
+      <Link
+        to={btnLink()}
+        onClick={() => dispatch(setActiveIndex(activeIndex + 1))}
+      >
+        <ButtonMainPage
+          text={btnText()}
+          className={btnClassName()}
+          openModal={activeIndex === 4 ? () => setActive(true) : ""}
+        />
+      </Link>
     </div>
   );
 };

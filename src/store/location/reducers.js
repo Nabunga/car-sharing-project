@@ -1,10 +1,15 @@
-import { GET_CITIES, GET_POINTS, SET_CITY, SET_POINT } from "./actions";
+import {
+  GET_CITIES,
+  GET_POINTS,
+  SET_CITY,
+  SET_POINTS_FOR_SELECTED_CITY,
+} from "./actions";
 
 const defaultState = {
   cities: [],
-  selectedCity: null,
   points: [],
-  point: "",
+  selectedCity: null,
+  pointsForSelectedCity: null,
 };
 
 export const locationReducer = (state = defaultState, action) => {
@@ -15,8 +20,8 @@ export const locationReducer = (state = defaultState, action) => {
       return { ...state, selectedCity: action.payload };
     case GET_POINTS:
       return { ...state, points: action.payload };
-    case SET_POINT:
-      return { ...state, point: action.payload };
+    case SET_POINTS_FOR_SELECTED_CITY:
+      return { ...state, pointsForSelectedCity: action.payload };
 
     default:
       return state;

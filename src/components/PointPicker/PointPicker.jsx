@@ -1,17 +1,19 @@
 import React from "react";
 import { ReactComponent as CrossIcon } from "../../assets/icons/cross-icon.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { setPoint } from "../../store/location/actions";
+import { setPointsForSelectedCity } from "../../store/location/actions";
 
 const PointPicker = ({ points }) => {
   const dispatch = useDispatch();
+  const { selectedCity, pointsForSelectedCity } = useSelector((state) => state.locationReducer);
 
   const validPoints = points.filter(point => {
-    return point.cityId !== null
+    return point.cityId !== null && point.cityId.name === selectedCity
   })
-  console.log(validPoints);
 
-  
+  const renderedPoints = validPoints.map(point => {
+    return <option key={point.address} value={point.address} /> 
+  })
 
   return (
     <>
@@ -24,11 +26,12 @@ const PointPicker = ({ points }) => {
           id="point-select"
           name="point-select"
           placeholder="Начните вводить пункт..."
+          onChange={e => dispatch(setPointsForSelectedCity(e.target.value))}
         />
         <datalist id="point-options">
-          {/* {renderedPoints} */}
+          {renderedPoints}
         </datalist>
-        <CrossIcon className="cross-icon" />
+        <CrossIcon className="cross-icon" onClick={() => dispatch(setPointsForSelectedCity(null))}/>
       </div>
     </>
   );
