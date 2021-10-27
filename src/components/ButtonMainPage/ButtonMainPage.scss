@@ -81,3 +81,28 @@
     );
   }
 }
+
+.btn {
+  width: 287px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: $main-accent;
+  color: #fff;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 1.8rem;
+  margin-top: 32px;
+  margin-left: 64px;
+  &_disabled {
+    background-color: $gray-light;
+    pointer-events: none;
+  }
+  @include from($laptop) {
+    margin: 16px 0 16px 64px;
+  }
+  @include from($mobile) {
+    width: 100%;
+    margin: 16px 0;
+    border-radius: 0;
+  }
+}

@@ -22,7 +22,7 @@ const MainPage = () => {
           <main className="main">
             <Main />
             <Link to="/order-page/location">
-              <ButtonMainPage className="order-button" title="Забронировать" />
+              <ButtonMainPage className="order-button" text="Забронировать" />
             </Link>
           </main>
           <footer className="footer">

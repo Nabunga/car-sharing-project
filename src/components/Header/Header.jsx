@@ -2,8 +2,10 @@ import React from "react";
 import "./Header.scss";
 import { ReactComponent as LocationIcon } from "../../assets/icons/location-icon.svg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { selectedCity } = useSelector(state => state.locationReducer)
   return (
     <>
       <div>
@@ -13,7 +15,7 @@ const Header = () => {
       </div>
       <div className="location">
         <LocationIcon className="location__icon" />
-        <p className="location__city">Ульяновск</p>
+        <p className="location__city">{selectedCity}</p>
       </div>
     </>
   );
