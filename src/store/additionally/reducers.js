@@ -10,11 +10,11 @@ import {
 } from "./actions";
 
 const defaultState = {
-  selectedColor: "",
+  selectedColor: null,
   startDate: null,
   endDate: null,
   rate: [],
-  selectedRate: "",
+  selectedRate: null,
   isFullTank: false,
   isNeedChildChair: false,
   isRightWheel: false,

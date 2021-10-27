@@ -1,11 +1,12 @@
 import React from "react";
-import map from "../../assets/img/map.png";
+import '../OrderLocation/OrderLocation.scss';
+import { YMapContainer } from "./YMapContainer";
 
 const PointMap = () => {
   return (
     <>
       <p className="input-label">Выбрать на карте:</p>
-      <img className="order__map-image" src={map} alt="map" />
+      <YMapContainer />
     </>
   );
 };

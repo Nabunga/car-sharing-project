@@ -6,11 +6,11 @@ const Slider = ({ header, text, className, classNameSlide}) => {
   return (
     <div className={classNameSlide}>
       <div className="slider__content">
-          <h2 className="slider__header">{header}</h2>
+        <h2 className="slider__header">{header}</h2>
         <p className="slider__text">
           {text}
         </p>
-        <ButtonMainPage className={className} title='Подробнее'/>
+        <ButtonMainPage className={className} text='Подробнее'/>
       </div>
     </div>
   );
