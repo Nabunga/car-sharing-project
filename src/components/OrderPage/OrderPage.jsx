@@ -24,15 +24,11 @@ const OrderPage = () => {
         <Modal active={modalActive} setActive={setModalActive}>
           <h2 className="modal__header">Подтвердить заказ</h2>
           <div className="modal__btn-group">
+            <ModalButton modalBtnClass="accepted" modalBtnText="Подтвердить" />
             <ModalButton
-              modalBtnRoute="/order-page/order-approving"
-              modalBtnClass="accepted"
-              modalBtnText="Подтвердить"
-            />
-            <ModalButton
-              modalBtnRoute="/order-page/total"
               modalBtnClass="rejected"
               modalBtnText="Вернуться"
+              setActive={setModalActive}
             />
           </div>
         </Modal>
@@ -54,7 +50,6 @@ const OrderPage = () => {
               <Route path="/order-page/total" exact component={OrderTabs} />
               <Route
                 path="/order-page/order-approving"
-                exact
                 component={OrderNumberApproving}
               />
             </Switch>
@@ -73,10 +68,9 @@ const OrderPage = () => {
                   exact
                   component={OrderAdditionally}
                 />
-                <Route path="/order-page/total" exact component={OrderTotal} />
+                <Route path="/order-page/total" component={OrderTotal} />
                 <Route
                   path="/order-page/order-approving"
-                  exact
                   component={OrderApproving}
                 />
               </Switch>

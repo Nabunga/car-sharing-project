@@ -6,6 +6,8 @@ export const GET_SELECTED_RATE = "GET_SELECTED_RATE";
 export const CHANGE_TANK_OPTION = "CHANGE_TANK_OPTION";
 export const CHANGE_CHILD_CHAIR_OPTION = "CHANGE_CHILD_CHAIR_OPTION";
 export const CHANGE_WHEEL_OPTION = "CHANGE_WHEEL_OPTION";
+export const SET_RENT_DURATION = "SET_RENT_DURATION";
+export const SET_READABLE_START_DATE = "SET_READABLE_START_DATE";
 
 export const setSelectedColor = payload => ({
   type: GET_SELECTED_COLOR,
@@ -47,5 +49,12 @@ export const setWheel = payload => ({
   payload
 });
 
+export const setRentDuration = payload => ({
+  type: SET_RENT_DURATION,
+  payload
+});
 
-
+export const setReadableStartDate = payload => ({
+  type: SET_READABLE_START_DATE,
+  payload
+});

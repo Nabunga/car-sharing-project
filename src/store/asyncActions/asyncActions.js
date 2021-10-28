@@ -52,3 +52,7 @@ export function getPoints() {
     });
   };
 }
+
+export function postOrder(order) {
+  return api.post("/db/order", order);
+}
