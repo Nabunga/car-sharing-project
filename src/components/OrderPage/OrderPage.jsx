@@ -14,6 +14,8 @@ import Modal from "../Modal/Modal";
 import ModalButton from "../ModalButton/ModalButton";
 import OrderApproving from "../OrderApproving/OrderApproving";
 import OrderNumberApproving from "../OrderNumberApproving/OrderNumberApproving";
+import OrderTotalApproving from "../OrderTotalApproving/OrderTotalApproving";
+import OrderDetailsApproving from "../OrderDetailsApproving/OrderDetailsApproving";
 
 const OrderPage = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -24,7 +26,11 @@ const OrderPage = () => {
         <Modal active={modalActive} setActive={setModalActive}>
           <h2 className="modal__header">Подтвердить заказ</h2>
           <div className="modal__btn-group">
-            <ModalButton modalBtnClass="accepted" modalBtnText="Подтвердить" />
+            <ModalButton
+              modalBtnClass="accepted"
+              modalBtnText="Подтвердить"
+              setActive={setModalActive}
+            />
             <ModalButton
               modalBtnClass="rejected"
               modalBtnText="Вернуться"
@@ -71,10 +77,31 @@ const OrderPage = () => {
                 <Route path="/order-page/total" component={OrderTotal} />
                 <Route
                   path="/order-page/order-approving"
-                  component={OrderApproving}
+                  component={OrderTotalApproving}
                 />
               </Switch>
-              <OrderDetails setActive={setModalActive} />
+              <Switch>
+                <Route
+                  path="/order-page/location"
+                  render={() => <OrderDetails setActive={setModalActive} />}
+                />
+                <Route
+                  path="/order-page/model"
+                  render={() => <OrderDetails setActive={setModalActive} />}
+                />
+                <Route
+                  path="/order-page/additionally"
+                  render={() => <OrderDetails setActive={setModalActive} />}
+                />
+                <Route
+                  path="/order-page/total"
+                  render={() => <OrderDetails setActive={setModalActive} />}
+                />
+                <Route
+                  path="/order-page/order-approving"
+                  component={OrderDetailsApproving}
+                />
+              </Switch>
             </div>
           </main>
         </div>

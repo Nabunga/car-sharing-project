@@ -29,9 +29,9 @@ const OrderTotal = ({ orderApprovingTitle }) => {
           className="info-img"
           alt="car"
           src={
-            activeCarInfo.thumbnail.path.includes("base64")
-              ? activeCarInfo.thumbnail.path
-              : URL_FOR_IMAGES + activeCarInfo.thumbnail.path
+            activeCarInfo.thumbnail?.path?.includes("base64")
+              ? activeCarInfo.thumbnail?.path
+              : URL_FOR_IMAGES + activeCarInfo.thumbnail?.path
           }
         />
       </div>

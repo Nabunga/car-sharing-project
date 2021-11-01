@@ -2,6 +2,7 @@ import api from "../../axios/api";
 import { setCarList, setCategoryList } from "../model/actions";
 import { setRate } from "../additionally/actions";
 import { setCities, setPoints } from "../location/actions";
+import { getOrderTotal } from "../orderTotal/actions";
 
 export function getCategoryList() {
   return (dispatch) => {
@@ -55,4 +56,12 @@ export function getPoints() {
 
 export function postOrder(order) {
   return api.post("/db/order", order);
+}
+
+export function getOrder(idOrder) {
+  return (dispatch) => {
+    api.get(`/db/order/${idOrder}`).then((res) => {
+      dispatch(getOrderTotal(res.data.data));
+    });
+  };
 }

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { postOrder } from "../../store/asyncActions/asyncActions";
 import { setActiveIndex } from "../../store/tabs/actions";
+import moment from "moment";
 
 const ModalButton = ({ modalBtnClass, modalBtnText, setActive }) => {
   const dispatch = useDispatch();
@@ -18,6 +19,9 @@ const ModalButton = ({ modalBtnClass, modalBtnText, setActive }) => {
     isRightWheel,
   } = useSelector((state) => state.additionallyReducer);
 
+  let startDateToMs = moment(startDate).valueOf();
+  let endDateToMs = moment(endDate).valueOf();
+
   let history = useHistory();
 
   const order = {
@@ -27,12 +31,12 @@ const ModalButton = ({ modalBtnClass, modalBtnText, setActive }) => {
     },
     cityId: { id: "5ea07c10099b810b946c627a" },
     pointId: { id: "6126c4fb2aed9a0b9b8510f6" },
-    carId: activeCarInfo.id,
-    color: { type: selectedColor },
-    dateFrom: { startDate },
-    dateTo: { endDate },
-    rateId: { selectedRate },
-    price: { isFullTank },
+    carId: { id: activeCarInfo.id },
+    color: selectedColor,
+    dateFrom: startDateToMs,
+    dateTo: endDateToMs,
+    rateId: { name: selectedRate },
+    price: activeCarInfo.priceMin,
     isFullTank: isFullTank,
     isNeedChildChair: isNeedChildChair,
     isRightWheel: isRightWheel,
@@ -45,6 +49,7 @@ const ModalButton = ({ modalBtnClass, modalBtnText, setActive }) => {
         history.push(`/order-page/order-approving/${response.data.data.id}`);
       });
       setActiveIndex(5);
+      setActive(false);
     } else if (modalBtnText === "Вернуться") {
       setActive(false);
     }

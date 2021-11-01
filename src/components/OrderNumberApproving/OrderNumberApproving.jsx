@@ -2,10 +2,14 @@ import React from "react";
 import "./OrderNumberApproving.scss";
 
 const OrderNumberApproving = () => {
+
+  let currentUrl = window.location.pathname;
+  var idOrder = currentUrl.substr(currentUrl.lastIndexOf('/') + 1);
+
   return (
     <div className="tabs">
       <h3 className="order-number__value">
-        Заказ номер 617a8324ac4e7e1c84ab8716
+        Заказ номер {idOrder}
       </h3>
     </div>
   );
