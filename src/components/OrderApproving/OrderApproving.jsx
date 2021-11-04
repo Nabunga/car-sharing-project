@@ -1,13 +1,13 @@
 import React from "react";
 import "./OrderApproving.scss";
-import OrderTotal from "../OrderTotal/OrderTotal";
+import OrderTotalApproving from '../OrderTotalApproving/OrderTotalApproving';
 
 const OrderApproving = () => {
   let approvingTitle = (
     <h2 className="approving-title">Ваш заказ подтверждён</h2>
   );
 
-  return <OrderTotal orderApprovingTitle={approvingTitle} />;
+  return <OrderTotalApproving orderApprovingTitle={approvingTitle} />;
 };
 
 export default OrderApproving;

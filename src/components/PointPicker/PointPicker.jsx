@@ -5,15 +5,15 @@ import { setPointsForSelectedCity } from "../../store/location/actions";
 
 const PointPicker = ({ points }) => {
   const dispatch = useDispatch();
-  const { selectedCity, pointsForSelectedCity } = useSelector((state) => state.locationReducer);
+  const { selectedCity } = useSelector((state) => state.locationReducer);
 
-  const validPoints = points.filter(point => {
-    return point.cityId !== null && point.cityId.name === selectedCity
-  })
+  const validPoints = points.filter((point) => {
+    return point.cityId !== null && point.cityId.name === selectedCity;
+  });
 
-  const renderedPoints = validPoints.map(point => {
-    return <option key={point.address} value={point.address} /> 
-  })
+  const renderedPoints = validPoints.map((point) => {
+    return <option key={point.address} value={point.address} />;
+  });
 
   return (
     <>
@@ -26,12 +26,13 @@ const PointPicker = ({ points }) => {
           id="point-select"
           name="point-select"
           placeholder="Начните вводить пункт..."
-          onChange={e => dispatch(setPointsForSelectedCity(e.target.value))}
+          onChange={(e) => dispatch(setPointsForSelectedCity(e.target.value))}
         />
-        <datalist id="point-options">
-          {renderedPoints}
-        </datalist>
-        <CrossIcon className="cross-icon" onClick={() => dispatch(setPointsForSelectedCity(null))}/>
+        <datalist id="point-options">{renderedPoints}</datalist>
+        <CrossIcon
+          className="cross-icon"
+          onClick={() => dispatch(setPointsForSelectedCity(null))}
+        />
       </div>
     </>
   );
