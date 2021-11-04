@@ -12,6 +12,7 @@ const OrderDetails = ({ setActive }) => {
     selectedColor,
     startDate,
     endDate,
+    rentDuration,
     selectedRate,
     isFullTank,
     isNeedChildChair,
@@ -30,6 +31,8 @@ const OrderDetails = ({ setActive }) => {
         return "Итого";
       case 4:
         return "Заказать";
+      case 5:
+        return "Отменить";
       default:
         return "Выбрать модель";
     }
@@ -54,6 +57,9 @@ const OrderDetails = ({ setActive }) => {
     if (activeIndex === 4) {
       return "btn";
     }
+    if (activeIndex === 5) {
+      return "btn slider__btn-third";
+    }
     return "btn btn_disabled";
   };
 
@@ -75,46 +81,78 @@ const OrderDetails = ({ setActive }) => {
       <div className="order-details__container">
         <h2 className="order-details__header">Ваш заказ:</h2>
         <ul className="order-list">
-          <li>
-            <span className="title">Пункт выдачи</span>
-            <span className="value">
-              {selectedCity},
-              <br /> {pointsForSelectedCity}
-            </span>
-          </li>
-          <li>
-            <span className="title">Модель</span>
-            <span className="value">{activeCarInfo.name}</span>
-          </li>
-          <li>
-            <span className="title">Цвет</span>
-            <span className="value">{selectedColor}</span>
-          </li>
-          <li>
-            <span className="title">Тариф</span>
-            <span className="value">{selectedRate}</span>
-          </li>
-          <li>
-            <span className="title">Полный бак</span>
-            <span className="value">{isFullTank ? "Да" : "Нет"}</span>
-          </li>
-          <li>
-            <span className="title">Детское кресло</span>
-            <span className="value">{isNeedChildChair ? "Да" : "Нет"}</span>
-          </li>
-          <li>
-            <span className="title">Правый руль</span>
-            <span className="value">{isRightWheel ? "Да" : "Нет"}</span>
-          </li>
+          {selectedCity && pointsForSelectedCity && (
+            <li>
+              <span className="title">Пункт выдачи</span>
+              <span className="value">
+                {selectedCity},
+                <br /> {pointsForSelectedCity}
+              </span>
+            </li>
+          )}
+          {activeCarInfo.name && (
+            <li>
+              <span className="title">Модель</span>
+              <span className="value">{activeCarInfo.name}</span>
+            </li>
+          )}
+          {selectedColor && (
+            <li>
+              <span className="title">Цвет</span>
+              <span className="value">{selectedColor}</span>
+            </li>
+          )}
+          {startDate && endDate && (
+            <li>
+              <span className="title">Длительность аренды</span>
+              <span className="value">
+                {startDate && endDate
+                  ? rentDuration.days + "д " + rentDuration.hours + "ч"
+                  : ""}
+              </span>
+            </li>
+          )}
+          {selectedRate && (
+            <li>
+              <span className="title">Тариф</span>
+              <span className="value">{selectedRate}</span>
+            </li>
+          )}
+          {isFullTank && (
+            <li>
+              <span className="title">Полный бак</span>
+              <span className="value">{isFullTank ? "Да" : "Нет"}</span>
+            </li>
+          )}
+          {isNeedChildChair && (
+            <li>
+              <span className="title">Детское кресло</span>
+              <span className="value">{isNeedChildChair ? "Да" : "Нет"}</span>
+            </li>
+          )}
+          {isRightWheel && (
+            <li>
+              <span className="title">Правый руль</span>
+              <span className="value">{isRightWheel ? "Да" : "Нет"}</span>
+            </li>
+          )}
         </ul>
-        <p className="order-details__price">
-          <span className="order-details__price_bold">Цена:</span> от 8 000 до
-          12 000 ₽
-        </p>
+        {activeCarInfo.priceMin && (
+          <p className="order-details__price">
+            <span className="order-details__price_bold">Цена:</span> от{" "}
+            {activeCarInfo.priceMin} до {activeCarInfo.priceMax} ₽
+          </p>
+        )}
       </div>
       <Link
         to={btnLink()}
-        onClick={() => dispatch(setActiveIndex(activeIndex + 1))}
+        onClick={() =>
+          dispatch(
+            activeIndex === 5
+              ? setActiveIndex(activeIndex - 1)
+              : setActiveIndex(activeIndex + 1)
+          )
+        }
       >
         <ButtonMainPage
           text={btnText()}
